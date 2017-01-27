@@ -1,0 +1,613 @@
+<PropertyList>
+<path>YAAZ214.ac</path>
+
+
+<nasal>
+  <load>
+    var livery_update = aircraft.livery_update.new("Aircraft/YAAZ214/Models/Liveries", 10);
+  </load>   
+  <unload>
+    livery_update.stop();
+  </unload>   
+</nasal>
+
+<sound>
+  <path>Aircraft/YAAZ214/Sounds/aucafly-sound.xml</path>
+</sound> 
+
+<!-- ========== Effects ========= -->
+<animation>
+  <type>material</type>
+  <object-name>YAAZ214-body</object-name>
+  <object-name>D1</object-name>
+<object-name>E1</object-name>
+<object-name>frontwheel</object-name>
+<object-name>midwheel</object-name>
+<object-name>backwheel</object-name>
+<object-name>Bonnet</object-name>
+  <property-base>sim/model/livery</property-base>
+  <texture-prop>texture</texture-prop>
+  <texture>Liveries/BaseColor.png</texture>
+</animation>
+<effect>
+ <inherits-from>Effects/glass</inherits-from>
+ <object-name>Windows</object-name>
+ <object-name>D3</object-name>
+ <object-name>E3</object-name>
+</effect>
+
+
+<!-- STEERINGWHEEL -->
+
+<animation>  
+ <type>rotate</type>  
+ <object-name>Steering</object-name>
+<object-name>Horn</object-name>
+ <property>surface-positions/rudder-pos-norm</property>
+ <factor>100</factor>
+ <axis>
+  <x1-m>-0.26601</x1-m>
+  <y1-m>-0.42929</y1-m>
+  <z1-m>2.36558</z1-m>
+  <x2-m>-0.31321</x2-m>
+  <y2-m>-0.42896</y2-m>
+  <z2-m>2.2506</z2-m>
+ </axis>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>Horn</object-name>
+  <visible>true</visible>
+  <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>sim/multiplay/generic/int[18]</property>
+        <value>1</value>
+      </binding>
+    <mod-up>
+        <binding>
+        <command>property-assign</command>
+        <property>sim/multiplay/generic/int[18]</property>
+        <value>0</value>
+        </binding>
+    </mod-up>
+  </action>
+</animation>
+
+<!-- Wheels -->
+
+<animation>
+  <object-name>frontwheel</object-name>
+  <object-name>frontwheel2</object-name>
+  <type>rotate</type>
+  <property>controls/flight/rudder</property>
+  <factor>-4</factor>
+  <offset-deg>0</offset-deg>
+  <center>
+   <x-m> -1.70044 </x-m>
+   <y-m> 0   </y-m>
+   <z-m> 0.66227 </z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ <animation>
+  <type>spin</type>
+  <object-name>frontwheel</object-name>
+  <object-name>frontwheel2</object-name>
+  <property>gear/gear[0]/rollspeed-ms</property>
+  <factor>10</factor>
+  <center>
+   <x-m> -1.70044 </x-m>
+   <y-m> 0   </y-m>
+   <z-m> 0.66227 </z-m>
+  </center>
+  <axis>
+	<x>0.0</x>
+   <y>-1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+<animation>
+ <type>spin</type>
+  <object-name>frontwheel</object-name>
+  <object-name>frontwheel2</object-name>
+ <property>sim/multiplay/generic/float[11]</property>
+ <factor>-6</factor>
+ <center>
+   <x-m> -1.70044 </x-m>
+   <y-m> 0   </y-m>
+   <z-m> 0.66227 </z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>1.0</y>
+  <z>0.0</z>
+ </axis>
+</animation>
+<animation>
+  <type>spin</type>
+  <object-name>midwheel</object-name>
+  <object-name>midwheel2</object-name>
+  <property>gear/gear[2]/rollspeed-ms</property>
+  <factor>5</factor>
+  <center>
+   <x-m> 2.88498</x-m>
+   <y-m> 0   </y-m>
+   <z-m> 0.66227 </z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<animation>
+ <type>spin</type>
+  <object-name>midwheel</object-name>
+  <object-name>midwheel2</object-name>
+ <property>sim/multiplay/generic/float[11]</property>
+ <factor>-6</factor>
+ <center>
+   <x-m> 2.88498</x-m>
+   <y-m> 0   </y-m>
+   <z-m> 0.66227 </z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>1.0</y>
+  <z>0.0</z>
+ </axis>
+</animation>
+<animation>
+  <type>spin</type>
+  <object-name>backwheel</object-name>
+  <object-name>backwheel2</object-name>
+  <property>gear/gear[2]/rollspeed-ms</property>
+  <factor>5</factor>
+  <center>
+   <x-m> 4.30625</x-m>
+   <y-m> 0   </y-m>
+   <z-m> 0.66227 </z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<animation>
+ <type>spin</type>
+  <object-name>backwheel</object-name>
+  <object-name>backwheel</object-name>
+ <property>sim/multiplay/generic/float[11]</property>
+ <factor>-6</factor>
+ <center>
+   <x-m> 4.30625</x-m>
+   <y-m> 0   </y-m>
+   <z-m> 0.66227 </z-m>
+ </center>
+ <axis>
+  <x>0.0</x>
+  <y>1.0</y>
+  <z>0.0</z>
+ </axis>
+</animation>
+
+<!-- DOOR ANIMATIONS -->
+
+<animation>
+<type>pick</type>
+<object-name>D1</object-name>
+<visible>true</visible>
+<action>
+<button>0</button>
+<repeatable>false</repeatable>
+<binding>
+<command>nasal</command>
+<script>doors.fldoor.toggle();</script>
+</binding>
+</action>
+<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>door</tooltip-id>
+                <label>Door Open/Close</label>
+            </binding>
+        </hovered>
+
+</animation>
+
+<animation>
+<type>rotate</type>
+<object-name>D1</object-name>
+<object-name>D2</object-name>
+<object-name>D3</object-name>
+<property>sim/multiplay/generic/float[2]</property>
+<factor>-40</factor>
+<center>
+<x-m>-0.50054</x-m>
+<y-m>-0.90872</y-m>
+<z-m>1.77766</z-m>
+</center>
+<axis>
+<x>0</x>
+<y>0</y>
+<z>1</z>
+</axis>
+</animation>
+<animation>
+<type>pick</type>
+<object-name>E1</object-name>
+<visible>true</visible>
+<action>
+<button>0</button>
+<repeatable>false</repeatable>
+<binding>
+<command>nasal</command>
+<script>doors.frdoor.toggle();</script>
+</binding>
+</action>
+<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>door</tooltip-id>
+                <label>Door Open/Close</label>
+            </binding>
+        </hovered>
+
+</animation>
+
+<animation>
+<type>rotate</type>
+<object-name>E1</object-name>
+<object-name>E2</object-name>
+<object-name>E3</object-name>
+<property>sim/multiplay/generic/float[3]</property>
+<factor>-40</factor>
+<center>
+<x-m>-0.50054</x-m>
+<y-m>0.95542</y-m>
+<z-m>1.77766</z-m>
+</center>
+<axis>
+<x>0</x>
+<y>0</y>
+<z>-1</z>
+</axis>
+</animation>
+<animation>
+<type>pick</type>
+<object-name>Bonnet</object-name>
+<visible>true</visible>
+<action>
+<button>0</button>
+<repeatable>false</repeatable>
+<binding>
+<command>nasal</command>
+<script>doors.bonnet.toggle();</script>
+</binding>
+</action>
+<hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>door</tooltip-id>
+                <label>Bonnet Open/Close</label>
+            </binding>
+        </hovered>
+
+</animation>
+
+<animation>
+<type>rotate</type>
+<object-name>Bonnet</object-name>
+<object-name>Logo</object-name>
+<property>sim/multiplay/generic/float[16]</property>
+<factor>-40</factor>
+<center>
+<x-m>-0.87893</x-m>
+<y-m>0.02368</y-m>
+<z-m>2.26504</z-m>
+</center>
+<axis>
+<x>0</x>
+<y>-1</y>
+<z>0</z>
+</axis>
+</animation>
+
+<!-- INSTRUMENTS -->
+
+<model> 
+ <path>Aircraft/YAAZ214/Models/Instruments/fuelgauge.xml</path>
+ <offsets> 
+  <x-m>-0.43414</x-m>
+  <y-m>-0.65515</y-m>
+  <z-m>2.29124</z-m>
+  <pitch-deg>-10.0</pitch-deg>
+ </offsets>
+</model>
+
+<!-- tank symbol for low fuel -->
+<model> 
+ <path>Aircraft/YAAZ214/Models/Instruments/fuel-reserve.xml</path>
+ <offsets> 
+  <x-m>-0.43414</x-m>
+  <y-m>-0.665</y-m>
+  <z-m>2.285</z-m>
+  <pitch-deg>-10.0</pitch-deg>
+ </offsets>
+</model>
+
+
+<!-- LIGHTS -->
+
+<animation>
+<type>select</type>
+  <object-name>LL</object-name>
+<condition>
+<and>
+<property>/sim/rendering/rembrandt/enabled</property>
+<greater-than>
+            <property>/sim/time/sun-angle-rad</property>
+            <value>1.57</value>
+         </greater-than>
+      </and>
+</condition>
+ </animation>
+<animation>
+<type>select</type>
+  <object-name>RR</object-name>
+<condition>
+<and>
+<property>/sim/rendering/rembrandt/enabled</property>
+<greater-than>
+            <property>/sim/time/sun-angle-rad</property>
+            <value>1.57</value>
+         </greater-than>
+      </and>
+</condition>
+ </animation>
+<animation>
+   <type>light</type>
+   <light-type>spot</light-type>
+   <name>LL</name>
+   <object-name>LL</object-name>
+   <nopreview/>
+   <position>
+     <x>-2.29038</x>
+     <y>-0.70454</y>
+     <z>1.66603</z>
+   </position>
+   <direction>
+     <x>-2.3</x>
+     <y>-0.70454</y>
+     <z>-0.1</z>
+   </direction>
+    <ambient>
+            <r>0.5</r>
+            <g>0.5</g>
+            <b>0.5</b>
+            <a>1.0</a>
+        </ambient>
+        <diffuse>
+            <r>0.7</r>
+            <g>0.7</g>
+            <b>0.6</b>
+            <a>1.0</a>
+        </diffuse>
+        <specular>
+            <r>0.8</r>
+            <g>0.8</g>
+            <b>0.8</b>
+            <a>1.0</a>
+        </specular>
+        <attenuation>
+            <c>1.0</c>
+            <l>0.002</l>
+            <q>0.00005</q>
+        </attenuation>
+        <exponent>30.0</exponent>
+        <cutoff>100</cutoff>
+        <near-m>2</near-m>
+        <far-m>1000</far-m>
+    </animation>
+<animation>
+   <type>light</type>
+   <light-type>spot</light-type>
+   <name>RR</name>
+   <object-name>RR</object-name>
+   <nopreview/>
+      <position>
+     <x>-2.29038</x>
+     <y>0.74155</y>
+     <z>1.66603</z>
+   </position>
+   <direction>
+     <x>-2.3</x>
+     <y>0.74155</y>
+     <z>-0.1</z>
+   </direction>
+    <ambient>
+            <r>0.5</r>
+            <g>0.5</g>
+            <b>0.5</b>
+            <a>1.0</a>
+        </ambient>
+        <diffuse>
+            <r>0.7</r>
+            <g>0.7</g>
+            <b>0.6</b>
+            <a>1.0</a>
+        </diffuse>
+        <specular>
+            <r>0.8</r>
+            <g>0.8</g>
+            <b>0.8</b>
+            <a>1.0</a>
+        </specular>
+        <attenuation>
+            <c>1.0</c>
+            <l>0.002</l>
+            <q>0.00005</q>
+        </attenuation>
+        <exponent>30.0</exponent>
+        <cutoff>100</cutoff>
+        <near-m>2</near-m>
+        <far-m>1000</far-m>
+    </animation>
+<animation>
+ <type>material</type>
+  <object-name>Lights</object-name>
+<condition>
+<greater-than>
+            <property>/sim/time/sun-angle-rad</property>
+            <value>1.57</value>
+         </greater-than>
+</condition>
+ <emission>
+  <red>1.0</red>
+  <green>1.0</green>
+  <blue>1.0</blue>
+ </emission>
+</animation>
+
+
+<!-- Indicator lights-->
+  <animation>
+ <type>material</type>
+ <object-name>Left Indicator</object-name>
+ <emission>
+  <red>2.0</red>
+  <green>0.8</green>
+  <blue>0.2</blue>
+  <factor-prop>sim/multiplay/generic/int[9]</factor-prop>
+ </emission>
+</animation>
+
+<animation>
+ <type>material</type>
+ <object-name>Right Indicator</object-name>
+ <emission>
+  <red>1.0</red>
+  <green>1.0</green>
+  <blue>1.0</blue>
+  <factor-prop>sim/multiplay/generic/int[13]</factor-prop>
+ </emission>
+</animation>
+
+
+<!-- Braking lights-->  
+<animation>
+ <type>material</type>
+ <object-name>Brakes</object-name>
+<emission>
+  <red>1.0</red>
+  <green>1.0</green>
+  <blue>1.0</blue>
+  <factor-prop>sim/multiplay/generic/float[17]</factor-prop>
+ </emission>
+</animation>
+
+
+<!--  Engine Starter and Gear Controls  -->
+
+<model> 
+ <path>Aircraft/YAAZ214/Models/Instruments/starter.xml</path>
+ <offsets> 
+  <x-m>-0.41139</x-m>
+  <y-m>-0.76</y-m>
+ <z-m>2.33</z-m>
+  <pitch-deg>-10.0</pitch-deg>
+ </offsets>
+</model>
+
+<model> 
+ <path>Aircraft/YAAZ214/Models/Instruments/P.xml</path>
+ <offsets> 
+  <x-m>-0.437</x-m>
+  <y-m>0.16423</y-m>
+  <z-m>2.32309</z-m>
+  <pitch-deg>-6.0</pitch-deg>
+ </offsets>
+</model>
+<model> 
+ <path>Aircraft/YAAZ214/Models/Instruments/R.xml</path>
+ <offsets> 
+  <x-m>-0.437</x-m>
+  <y-m>0.26951</y-m>
+  <z-m>2.32309</z-m>
+  <pitch-deg>-6.0</pitch-deg>
+ </offsets>
+</model>
+<model> 
+ <path>Aircraft/YAAZ214/Models/Instruments/N.xml</path>
+ <offsets> 
+  <x-m>-0.437</x-m>
+  <y-m>0.37479</y-m>
+  <z-m>2.32309</z-m>
+  <pitch-deg>-6.0</pitch-deg>
+ </offsets>
+</model>
+<model> 
+ <path>Aircraft/YAAZ214/Models/Instruments/D.xml</path>
+ <offsets> 
+  <x-m>-0.429</x-m>
+  <y-m>0.16395</y-m>
+  <z-m>2.2594</z-m>
+  <pitch-deg>-6.0</pitch-deg>
+ </offsets>
+</model>
+<model> 
+ <path>Aircraft/YAAZ214/Models/Instruments/D2.xml</path>
+ <offsets> 
+  <x-m>-0.429</x-m>
+  <y-m>0.37365</y-m>
+  <z-m>2.2594</z-m>
+  <pitch-deg>-6.0</pitch-deg>
+ </offsets>
+</model>
+<!-- Accelerator & Decelerator-->
+<animation>
+  <type>pick</type>
+  <visible>true</visible>
+  <object-name>Accelerator</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+  <binding>
+   <command>property-adjust</command>
+    <property>/controls/engines/engine/throttle</property>
+<step>0.05</step>
+  <min>0</min>
+  <max>1</max>
+  <wrap>false</wrap>
+    </binding>
+  </action>
+ </animation>
+<animation>
+  <type>pick</type>
+  <visible>true</visible>
+  <object-name>Decelerator</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+  <binding>
+   <command>property-adjust</command>
+    <property>/controls/engines/engine/throttle</property>
+<step>-0.05</step>
+  <min>0</min>
+  <max>1</max>
+  <wrap>false</wrap>
+    </binding>
+  </action>
+ </animation>
+</PropertyList>
